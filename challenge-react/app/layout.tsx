@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import joiner from "classnames";
+import { cn } from "@/lib/utils";
+
 import { inter, lato } from "@/public/fonts/FontProperty";
 import Footer from "@/components/Footer/Footer";
 import { Suspense } from "react";
 import LoadingPage from "./loading";
+import Title from "@/components/Main/Title/Title";
 
 export const metadata: Metadata = {
   title: "Web dev challenge",
   description: "This is getting exciting",
   icons: {
-    icon: "images/MainLogo.svg",
+    icon: "images/logo.jpg",
   },
   creator: "Mossarelladev",
   authors: { name: "Mossarelladev", url: "https://mossarelladev.com" },
@@ -73,8 +75,10 @@ export default function RootLayout({
           content="https://mossarelladev.com/images/cover.png"
         /> */}
       </head>
-      <body className={joiner(inter.variable, lato.variable, "maxSection")}>
-        <nav>{/* <Nav></Nav> */}</nav>
+      <body className={cn(inter.variable, lato.variable, "maxSection")}>
+        <nav>
+          <Title></Title>
+        </nav>
         <main className="flex flex-col w-full flex-1">
           <Suspense fallback={<LoadingPage />}>{children}</Suspense>
         </main>

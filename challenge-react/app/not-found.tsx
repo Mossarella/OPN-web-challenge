@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import joiner from "classnames";
 
 export default function NotFound() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function NotFound() {
         onClick={() => {
           handleGoBack();
         }}
-        className={joiner(
+        className={cn(
           "btn  rounded px-3 py-2 min-h-0 h-[33.6px] flex justify-center items-center  shadow-sm  ",
 
           "btn-primary whiteFilter "

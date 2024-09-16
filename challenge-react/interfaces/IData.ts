@@ -1,7 +1,7 @@
-import { ICharity } from "./ICharity";
+import { IFoundation } from "./IFoundation";
 import { IPayment } from "./IPayment";
 
 export interface Idata {
-  charities: ICharity[];
+  charities: IFoundation[];
   payments: IPayment[];
 }
