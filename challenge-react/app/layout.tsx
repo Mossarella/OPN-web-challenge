@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-import { inter, lato } from "@/public/fonts/FontProperty";
+import { inter, lato, poppins } from "@/public/fonts/FontProperty";
 import Footer from "@/components/Footer/Footer";
 import { Suspense } from "react";
 import LoadingPage from "./loading";
 import Title from "@/components/Main/Title/Title";
+import NavBar from "@/components/Nav/NavBar";
 
 export const metadata: Metadata = {
-  title: "Web dev challenge",
-  description: "This is getting exciting",
+  title: "Omise Tamboon React",
+  description: "Web challenge",
   icons: {
-    icon: "images/logo.jpg",
+    icon: "images/omise.png",
   },
   creator: "Mossarelladev",
   authors: { name: "Mossarelladev", url: "https://mossarelladev.com" },
@@ -75,14 +76,21 @@ export default function RootLayout({
           content="https://mossarelladev.com/images/cover.png"
         /> */}
       </head>
-      <body className={cn(inter.variable, lato.variable, "maxSection")}>
-        <nav>
-          <Title></Title>
+      <body
+        className={cn(
+          inter.variable,
+          lato.variable,
+          poppins.variable,
+          "w-full"
+        )}
+      >
+        <nav className="flex flex-col items-center">
+          <NavBar></NavBar>
         </nav>
-        <main className="flex flex-col w-full flex-1">
+        <main className="flex flex-col w-full flex-1 items-center min-h-[calc(100vh-108px)] ">
           <Suspense fallback={<LoadingPage />}>{children}</Suspense>
         </main>
-        <footer>
+        <footer className="flex flex-col w-full flex-1 items-center">
           <Footer></Footer>
         </footer>
       </body>

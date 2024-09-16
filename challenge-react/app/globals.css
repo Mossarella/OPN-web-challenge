@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --white: #ffffff;
-  --primary: #009540;
-  --grey: #f5f5f5;
+  --white: #f8f8f8;
+  --black: #1f1f1f;
+  --primary: #b8ff60;
+  --primary2: rgb(147, 241, 31);
+  --grey: #585757;
+  --grey2: #bebebe;
 }
 
 /* override */
 
 @layer base {
   * {
+    font-family: var(--font-poppins);
     touch-action: manipulation;
     padding: 0;
     margin: 0;
@@ -39,13 +43,11 @@
   textarea {
     resize: none;
   }
-  .select {
-    font-family: var(--font-lato);
-  }
 
   html {
     scrollbar-width: thin;
     overflow-x: hidden;
+    background-color: var(--white);
   }
   button:disabled,
   input:disabled,
@@ -113,13 +115,7 @@
 }
 
 @layer utilities {
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+  .filter-grayscale {
+    filter: grayscale(40%);
   }
 }

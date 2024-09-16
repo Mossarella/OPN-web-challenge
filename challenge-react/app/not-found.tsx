@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   const router = useRouter();
@@ -12,21 +13,20 @@ export default function NotFound() {
   };
 
   return (
-    <div className="flex flex-1 h-full flex-col items-center justify-center gap-2">
+    <div className="flex flex-1  h-full flex-col items-center justify-center gap-2">
       <h2 className="text-xl font-semibold">404 Not Found</h2>
-      <p>Could not find the requested path.</p>
-      <div
+      <p>Could not find the requested path :(</p>
+      <Button
         onClick={() => {
           handleGoBack();
         }}
         className={cn(
-          "btn  rounded px-3 py-2 min-h-0 h-[33.6px] flex justify-center items-center  shadow-sm  ",
-
-          "btn-primary whiteFilter "
+          "mt-2 w-full rounded-full bg-[var(--primary)] hover:bg-[var(--primary2)] text-[var(--black)]  "
         )}
+        variant="outline"
       >
         Go Back
-      </div>
+      </Button>
     </div>
   );
 }

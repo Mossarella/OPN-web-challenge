@@ -29,12 +29,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/use-toast";
-import { Toast } from "@/components/ui/toast";
 import { ILocalStorageItem } from "@/interfaces/ILocalStorageItem";
 import { IPayment } from "@/interfaces/IPayment";
 import { LoadingSpinner } from "@/components/ui/loadingSpinner";
 
-export default function CharityCard() {
+export default function FoundationCardList() {
   const { toast } = useToast();
 
   const [charityData, setCharityData] = useState<IFoundation[]>([]);
@@ -146,7 +145,7 @@ export default function CharityCard() {
 
     try {
       setPaymentSpinner(true);
-      await axios.post<IPayment>("/api/foundations", {
+      const response = await axios.post<IPayment>("/api/foundations", {
         charitiesId: selectedFoundation?.id,
         amount: amount,
         currency: selectedFoundation?.currency,
@@ -156,9 +155,10 @@ export default function CharityCard() {
           setPaymentSpinner(false);
           toast({
             variant: "success",
-            title: "Successfully donated.",
-            description: "There was no problem with your request.",
+            title: "Donation successful!",
+            description: "Your kindness will make a lasting impact!",
           });
+          console.log(response.data);
           resolve();
         }, 2000);
       });
@@ -166,7 +166,7 @@ export default function CharityCard() {
       console.log(error);
       toast({
         variant: "destructive",
-        title: "Error",
+        title: "Donation unsuccessfully!",
         description:
           "There was a problem with your donation. Please try again.",
       });
@@ -182,22 +182,24 @@ export default function CharityCard() {
   };
 
   const FoundationSkeleton = () => {
-    return [...Array(6)].map((item, index) => {
+    return [...Array(5)].map((item, index) => {
       return (
         <Card
           key={index}
-          className="overflow-hidden"
+          className=" flex flex-col overflow-hidden  h-[480px]  "
         >
-          <CardHeader className="p-0">
-            <Skeleton className="h-48 w-full" />
+          <CardHeader className="p-6">
+            <div className="h-56 w-full relative">
+              <Skeleton className="bg-[var(--grey2)] h-full w-full rounded-lg" />
+            </div>
           </CardHeader>
-          <CardContent className="p-6">
-            <Skeleton className="h-6 w-3/4 mb-2" />
-            <Skeleton className="h-4 w-full mb-2" />
-            <Skeleton className="h-4 w-5/6" />
+          <CardContent className="flex flex-col flex-1 px-6 pb-6">
+            <Skeleton className="h-6 w-3/4 mb-2 bg-[var(--grey2)]" />
+            <Skeleton className="h-4 w-full mb-2 bg-[var(--grey2)]" />
+            <Skeleton className="h-4 w-full bg-[var(--grey2)]" />
           </CardContent>
-          <CardFooter className="bg-indigo-50 p-4">
-            <Skeleton className="h-10 w-full" />
+          <CardFooter className=" p-4 h-16">
+            <Skeleton className="bg-[var(--grey2)] h-full w-full" />
           </CardFooter>
         </Card>
       );
@@ -206,16 +208,16 @@ export default function CharityCard() {
 
   const ErrorMessage = () => {
     return (
-      <div className="flex-1 flex-col gap-y-2 text-center flex justify-center items-center opacity-50 w-full h-full">
-        <p>Something went wrong :(</p>
+      <div className=" text-sm text-balance flex-1 flex-col  col-span-1 md:col-span-2 lg:col-span-3 text-center flex justify-center items-center  w-full h-full">
+        <p>Ouch, Something went wrong :(</p>
       </div>
     );
   };
 
   return (
-    <>
+    <div className=" w-full flex items-center flex-col flex-1 h-full">
       <Toaster />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="h-full flex-1 grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {isLoading ? (
           <FoundationSkeleton />
         ) : error ? (
@@ -224,25 +226,31 @@ export default function CharityCard() {
           charityData.map((item, index) => (
             <Card
               key={item.id}
-              className="overflow-hidden transition-all duration-300 hover:shadow-xl "
+              className=" flex flex-col overflow-hidden transition-all hover:shadow-xl  h-[480px]"
             >
-              <CardHeader className="p-0">
-                <img
-                  src={`/images/${item.image}`}
-                  alt={item.name}
-                  className="w-full h-48 object-cover"
-                />
+              <CardHeader className="p-6">
+                <div className="h-56 w-full relative">
+                  <Image
+                    src={`/images/${item.image}`}
+                    alt={item.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="h-full w-full rounded-lg   filter-grayscale"
+                  />
+                </div>
               </CardHeader>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-2 text-indigo-700">
+              <CardContent className="flex flex-col flex-1 px-6 pb-6">
+                <h2 className="text-xl font-semibold mb-2 text-[var(--black)]">
                   {item.name}
                 </h2>
-                <p className="text-gray-600 mb-4">{item.name}</p>
+                <p className=" text-[var(--grey)] text-[0.8rem] mb-4 italic">
+                  Dedicated to {item.name} foundation
+                </p>
               </CardContent>
-              <CardFooter className="bg-indigo-50 p-4">
+              <CardFooter className="bg-[var(--black)] p-4 h-16">
                 <Button
                   onClick={() => handlePickFoundation(item)}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+                  className="w-full bg-[var(--primary)] hover:bg-[var(--primary2)] text-[var(--black)]"
                 >
                   Donate Now
                 </Button>
@@ -255,9 +263,9 @@ export default function CharityCard() {
           open={!!selectedFoundation}
           onOpenChange={() => setSelectedFoundation(null)}
         >
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] bg-[var(--white)] rounded-lg ">
             <DialogHeader>
-              <DialogTitle className="text-center text-2xl font-bold text-indigo-800">
+              <DialogTitle className=" text-balance text-center text-xl  font-semibold text-[var(--black)]">
                 Donate to {selectedFoundation?.name}
               </DialogTitle>
             </DialogHeader>
@@ -265,7 +273,7 @@ export default function CharityCard() {
               <div className="space-y-2">
                 <Label
                   htmlFor="amount"
-                  className="text-indigo-700"
+                  className="text-[var(--black)] text-[0.8rem]"
                 >
                   Select Donation Amount ({selectedFoundation?.currency})
                 </Label>
@@ -287,7 +295,7 @@ export default function CharityCard() {
                         key={index}
                         value={item.toString()}
                       >
-                        ${item}
+                        {item}
                       </SelectItem>
                     ))}
                     <SelectItem value="custom">Custom amount</SelectItem>
@@ -298,7 +306,7 @@ export default function CharityCard() {
                 <div className="space-y-2">
                   <Label
                     htmlFor="custom-amount"
-                    className="text-indigo-700"
+                    className="text-[var(--black)]"
                   >
                     Enter Custom Amount ({selectedFoundation?.currency})
                   </Label>
@@ -323,10 +331,14 @@ export default function CharityCard() {
             </div>
             <Button
               onClick={handlePay}
-              className="w-full mt-4 bg-green-600 hover:bg-green-700 text-white"
-              disabled={donationAmount === "custom" && !customDonationAmount}
+              className="w-full mt-4 bg-[var(--primary)] hover:bg-[var(--primary2)] text-[var(--black)]"
+              disabled={
+                (donationAmount === "custom" && !customDonationAmount) ||
+                paymentSpinner
+              }
             >
-              Complete Donation &nbsp;
+              {paymentSpinner ? "Working On It" : "Confirm Donation"}
+              &nbsp;
               <LoadingSpinner
                 className={paymentSpinner ? "flex" : "hidden"}
               ></LoadingSpinner>
@@ -334,6 +346,6 @@ export default function CharityCard() {
           </DialogContent>
         </Dialog>
       </div>
-    </>
+    </div>
   );
 }

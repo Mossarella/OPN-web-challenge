@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="h-[44px] px-6 w-full flex font-normal text-sm items-center text-[#b8b8b8] ">
+    <div className="maxSection h-[44px] px-6 w-full flex flex-row font-normal text-sm items-center justify-end text-[var(--grey)] ">
       © Omise, 2024
     </div>
   );
