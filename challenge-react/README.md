@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web developer challenge : Front End Developer position
 
-## Getting Started
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This project was rapidly prototyped using the Next.js framework with typescript to provide full-stack capabilities and serve as a production-ready successor to a React web app. Furthermore, Next.js’s backend features were also utilized to simulate HTTP GET and POST requests.
 
-First, run the development server:
+Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up with a whole new design and interactivity. Enhancing the user experience with both functional and aesthetic improvements. 🔥🔥🔥
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Basic requirement checklist
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ✔️ A completely new design according to application wireframe. Built with the most robust css foundation. Designed to be scalable for future enhancement in both code and styling wise.
+- ✔️ A feature to display all donation amount. And a feature to donate to just what foundation you wish for.
+- ✔️ A feature to display a message when the transaction is complete. On the other hand, when a transaction is incomplete (It's unlikely, duh)
+- ✔️ The application itself will remember the last donation amount that user have selected with any foundation. Despite they're leaving the site and revisit us the other time.
+- ✔️ The MockDB will have new donation/ payment record push in. You can also inspect the console when the donation is complete.
+- ✔️ Refactor code
+- ✔️ Most of the CSS styling was done using Tailwind classes. I typically use CSS modules for additional configuration on a per-component basis when needed, but in this case, Not required.
+- ✔️ A step by step commit message to trace what have been done.
+- ✔️ Display exquisitely in most modern browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Non functional requirement checklist
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🎯 Fully responsive for various device sizes. Starting at 320px (the lowest screen size to consider).
+- 🎯 Helper unit test
 
-## Learn More
+#### Additional enhancement to perfect the application
 
-To learn more about Next.js, take a look at the following resources:
+- ⭐ Various quality-of-life improvements, such as little meaningful animations, button states, loading spinner and skeleton (Very spooky 💀).
+- ⭐ Error handling and error display for unexpected issues.
+- ⭐ Basic form validation to ensure the correct data management.
+- ⭐ Catch all 404 page for unmatched routes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+####
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Try it for yourself!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To ensure that an application will be working in fully ideal state. Please proceed as instruction below
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+&nbsp;1. Clone the repository\
+&nbsp;2. Change directory to root folder\
+&nbsp;3. Run this command to install needed package
+
+    npm i
+
+&nbsp;4. Run this command to launch the development version on your device.
+
+    npm run dev
+
+And finally, Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to access the application. Hooray!
+
+\
+**_In case of something not working as expected, Please feel free to contact me and kindly report me the issue_**
+
+####
+
+---
+
+[MOCK](\challenges\challenge-react\public\images\mock.png)
+
+\
+\
+\
+\
+_Created by Mossarelladev, 2024_.\
+Thanks for sticking to here ⭐
