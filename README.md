@@ -19,7 +19,6 @@ Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up
 #### Non functional requirement checklist
 
 - 🎯 Fully responsive for various device sizes. Starting at 320px (the lowest screen size to consider).
-- 🎯 Helper unit test
 
 #### Additional enhancement to perfect the application
 
