@@ -55,7 +55,7 @@ And finally, Open your browser and navigate to [http://localhost:3000](http://lo
 
 ---
 
-![Image Description](./challenge-react/public/images/myimages.png)
+![Image Description](./challenge-react/public/images/mock.png)
 
 \
 \
