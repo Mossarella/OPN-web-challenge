@@ -11,7 +11,7 @@ Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up
 - ✔️ A feature to display a message when the transaction is complete. On the other hand, when a transaction is incomplete (It's unlikely, duh)
 - ✔️ The application itself will remember the last donation amount that user have selected with any foundation. Despite they're leaving the site and revisit us the other time.
 - ✔️ The MockDB will have new donation/ payment record push in. You can also inspect the console when the donation is complete.
-- ✔️ Refactor code
+- ✔️ Code are split and refactor into multiple component with central context provider for better readability and understanding
 - ✔️ Most of the CSS styling was done using Tailwind classes. I typically use CSS modules for additional configuration on a per-component basis when needed, but in this case, Not required.
 - ✔️ A step by step commit message to trace what have been done.
 - ✔️ Display exquisitely in most modern browser.
@@ -46,7 +46,7 @@ Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up
 
     npm run dev
 
-And finally, Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to access the application. Hooray!
+And finally, Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to access the application. Hooray!, feel free to play around and have fun.
 
 \
 **_In case of something not working as expected, Please feel free to contact me and kindly report me the issue_**
@@ -57,9 +57,6 @@ And finally, Open your browser and navigate to [http://localhost:3000](http://lo
 
 ![Image Description](./challenge-react/public/images/mock.png)
 
-\
-\
-\
 \
 _Created by Mossarelladev, 2024_.\
 Thanks for sticking to here ⭐
