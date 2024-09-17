@@ -7,6 +7,7 @@ import FoundationCard from "../FoundationCard/FoundationCard";
 import PaymentDialog from "../PaymentDialog/PaymentDialog";
 import FoundationCardSkeleton from "../FoundationCardSkeleton/FoundationCardSkeleton";
 import { useFoundation } from "@/contexts/CFoundation";
+import ErrorComponent from "@/app/error";
 
 export default function FoundationCardList() {
   const {
@@ -16,6 +17,7 @@ export default function FoundationCardList() {
     setIsLoading,
     isLoading,
     charityData,
+    error,
   } = useFoundation();
 
   useEffect(() => {
@@ -36,7 +38,6 @@ export default function FoundationCardList() {
       });
     } catch (error) {
       setError(true);
-      throw new Error("Failed to fetch data");
     } finally {
       setIsLoading(false);
     }
@@ -47,6 +48,8 @@ export default function FoundationCardList() {
       <div className="h-full flex-1 grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {isLoading ? (
           <FoundationCardSkeleton />
+        ) : error ? (
+          <ErrorComponent error={error} />
         ) : (
           charityData.map((item: IFoundation, index: number) => (
             <FoundationCard

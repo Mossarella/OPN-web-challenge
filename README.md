@@ -14,7 +14,7 @@ Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up
 - ✔️ Code are split and refactor into multiple component with central context provider for better readability and understanding
 - ✔️ Most of the CSS styling was done using Tailwind classes. I typically use CSS modules for additional configuration on a per-component basis when needed, but in this case, Not required.
 - ✔️ A step by step commit message to trace what have been done.
-- ✔️ Display exquisitely in most modern browser.
+- ✔️ Display exquisitely in most modern browser, Try it.
 
 #### Non functional requirement checklist
 
