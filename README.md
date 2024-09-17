@@ -37,7 +37,7 @@ Tailwind CSS and ShadCN were used for quick styling and responsiveness. Touch up
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To ensure that an application will be working in fully ideal state. Please proceed as instruction below
 
 &nbsp;1. Clone the repository\
-&nbsp;2. Change directory to root folder\
+&nbsp;2. Change directory to challenge-react folder\
 &nbsp;3. Run this command to install needed package
 
     npm i
@@ -55,7 +55,7 @@ And finally, Open your browser and navigate to [http://localhost:3000](http://lo
 
 ---
 
-[MOCK](/challenge-react/public/images/mock.png)
+![Image Description](./challenge-react/public/images/myimages.png)
 
 \
 \
